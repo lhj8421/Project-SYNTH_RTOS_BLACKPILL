@@ -51,8 +51,7 @@
 ## 🎚️ 신호 처리
 ### ADSR (Envelope)
 * 소리가 시간에 따라 어떻게 변화하는지를 정의
-<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/8bc5f59a-737d-46b2-a92b-e50146aa274f" />
-
+![537391460-5211d62c-eb23-4a60-aaa6-2dedb4405495](https://github.com/user-attachments/assets/52440d38-ae94-492b-b960-e8bd7bb22f09)
 
  * Attack: 소리가 최대 음량에 도달하는 시간
  * Decay: 최대 음량에서 지속 음량으로 감소하는 시간
