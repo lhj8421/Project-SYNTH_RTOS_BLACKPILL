@@ -67,3 +67,56 @@
 * Resonance (Q Factor): Cutoff 주파수 근처의 신호를 강조
 
 
+## 🔄 오디오 신호 처리 흐름도
+<img width="1054" height="220" alt="image" src="https://github.com/user-attachments/assets/076195dd-55a6-4928-92c6-61c013771330" />
+
+
+## 📡 DMA 전송
+### DMA를 활용한 효율적인 오디오 데이터 전송
+<img width="1592" height="1017" alt="image" src="https://github.com/user-attachments/assets/06b27eda-0f5d-4262-8d33-6d85c6bda12d" />
+
+* Circular Buffer 방식: Half/Full 콜백으로 CPU 개입 최소화
+* 44.1kHz 샘플링: I2S DMA를 통해 DAC로 전송
+* CPU 부하 감소: DMA가 데이터 전송을 담당하여 CPU는 샘플 생성에 집중
+
+## ⚙️ RTOS vs Bare-metal
+<img width="1012" height="247" alt="image" src="https://github.com/user-attachments/assets/9cdc885a-402a-401d-9ce1-70d54df4983c" />
+
+### Bare-metal (Super Loop)의 한계
+* 다른 Task의 소요 시간이 길면 Task 1의 실시간성 보장 어려움
+* 무거운 작업을 ISR에서 처리하기 부담스러움
+
+### RTOS(FreeRTOS) 사용 이유
+* 우선순위 기반 스케줄링
+ * High Priority: Sound Engine (가장 높은 우선순위)
+ * Medium Priority: Button + Encoder
+ * Low Priority: UI
+
+* Task 상태 관리
+ * Running → Ready → Blocked → Suspended
+ * Event 기반 Task 전환으로 효율적인 CPU 사용
+
+
+## 🔧 트러블 슈팅 (Trouble-shooting)
+
+| 문제 | 현상 | 원인 | 해결 |
+|------|------|------|------|
+| **스위치 문제** | 풀업 저항 작동 안함 | MCU의 풀업 저항 고장 | MCU 핀 위치 변경 |
+| **버퍼 언더런** | 일정 주기로 짧게 소리가 끊김 | 샘플 생성 루프 내 과도한 연산으로 인해 I2S DMA 버퍼를 제때 채우지 못함 | 반복적으로 수행되던 계산을 루프 외부로 이동하여 샘플 생성 경로를 최적화함 |
+| **LCD SPI 통신 오류** | LCD 라이브러리 파일에서 타임아웃 1ms로 설정, 타임아웃 부족으로 SPI 전송 실패하여 화면 깨짐 | 타임아웃 시간 부족 | HAL_MAX_DELAY 설정, 무한대기를 통해 해결 |
+
+
+## 👥 팀원
+
+| 이름 | 역할 |
+|------|------|
+| 원종완 | 팀장 |
+| 서민솔 | 파형 및 필터 |
+| 이동우 | 입력 장치 |
+| 안창희 | 입력 장치 |
+| 유종민 | 파형 및 필터 |
+| 김영교 | UI |
+| 이환중 | UI |
+
+
+
