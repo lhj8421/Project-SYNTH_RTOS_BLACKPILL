@@ -56,6 +56,16 @@
  * Attack: 소리가 최대 음량에 도달하는 시간
  * Decay: 최대 음량에서 지속 음량으로 감소하는 시간
  * Sustain: 키를 누르고 있는 동안 유지되는 음량
- * Release: 키를 뗀 후 소리가 사라지는 시간 
+ * Release: 키를 뗀 후 소리가 사라지는 시간
+
+### IIR Low-Pass Filter
+Cutoff (LPF)
+![537391471-d9d8266c-0277-4fc1-8093-e0784a2a1aa7](https://github.com/user-attachments/assets/a9b86e20-c2d3-4bc3-b6d2-0a4252169233)
+
+Resonance (Q)
+![537391476-124efc4b-c8be-4dd5-984f-b19631db45e2](https://github.com/user-attachments/assets/175dc904-57f2-4de7-a56a-843191e75509)
+
+* Cutoff Frequency: 특정 주파수 이상의 고주파 성분 제거
+* Resonance (Q Factor): Cutoff 주파수 근처의 신호를 강조
 
 
