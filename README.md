@@ -46,19 +46,9 @@
  * saw_lut[1024]
  * square_lut[1024]
 
-Pitch Control (음높이 제어)
-1. Target Frequency 및 파형 종류 설정
-
-Keypad 입력으로 target_freq 결정
-target_freq = base_pitch × octave_scale (base_pitch: C4 ~ B4)
-
-2. Target Frequency에 맞게 위상 진행 수치 결정
-
-Δ (tuning_word) = (f_target × 2³²) / F_sample
-F_sample = 44.1KHz
-
-3. LUT에서 샘플 읽기
-
-예시: tuning_word = 4일 때, LUT의 4개씩 건너뛰며 샘플링
+* tuning_word = f_target * 2^32 / F_sample
+* phase_acc += tuning_word
+* index = phase_acc >> SHIFT 로 LUT 접근
+* 샘플레이트: F_sample = 44.1kHz
 
 
