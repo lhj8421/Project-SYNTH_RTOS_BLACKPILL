@@ -42,10 +42,6 @@
 
 룩업 테이블 사전 초기화
 각 파형의 한 주기를 1024개의 점으로 균등 분할하여 int16_t 배열에 저장
- * sine_lut[1024]
- * saw_lut[1024]
- * square_lut[1024]
-
 * tuning_word = f_target * 2^32 / F_sample
 * phase_acc += tuning_word
 * index = phase_acc >> SHIFT 로 LUT 접근
