@@ -1,4 +1,4 @@
-<img width="1141" height="554" alt="image" src="https://github.com/user-attachments/assets/9e43e631-1104-4010-9626-3a1f5969e716" /># Project-SYNTH_RTOS_BLACKPILL
+# Project-SYNTH_RTOS_BLACKPILL
 
 ## 📋 프로젝트 개요
 
