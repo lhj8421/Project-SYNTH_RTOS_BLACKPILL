@@ -48,3 +48,14 @@
 * 샘플레이트: F_sample = 44.1kHz
 
 
+## 🎚️ 신호 처리
+### ADSR (Envelope)
+* 소리가 시간에 따라 어떻게 변화하는지를 정의
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/4fc4a157-3bdc-41d9-abb5-84314826e2f5" />
+
+ * Attack: 소리가 최대 음량에 도달하는 시간
+ * Decay: 최대 음량에서 지속 음량으로 감소하는 시간
+ * Sustain: 키를 누르고 있는 동안 유지되는 음량
+ * Release: 키를 뗀 후 소리가 사라지는 시간 
+
+
